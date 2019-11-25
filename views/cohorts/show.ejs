@@ -1,0 +1,55 @@
+<%- include("../partials/header") %> 
+  <div>
+    <h2>
+      <%= cohort.name %> 
+    </h2>
+    <p>
+      <%= cohort.members %>
+    </p>    
+    <div class="show_buttons">
+      <form  action="/cohorts/<%= cohort.id %>" method="POST">
+        <input type="hidden" value="DELETE" name="_method">
+        <input type="submit" value="Delete" class="btn btn-danger">
+      </form>
+
+      <a href="/cohorts/<%= cohort.id %>/edit" class="btn btn-info">Edit</a>
+    </div>
+
+    <form action="/cohorts/<%= cohort.id %>" method="GET" class="teamControls">
+      <div class="teamControls">
+        <label for="method">Method</label>
+        <input type="radio" id="teamCount"
+          name="method" value="teamCount" <%= method ==='teamCount' ? 'checked' : '' %> >
+        <label for="teamCount">Team Count</label>
+    
+        <input type="radio" id="numberPerTeam"
+          name="method" value="numberPerTeam" <%= method ==='numberPerTeam' ? 'checked' : '' %> >
+        <label for="numberPerTeam">Number Per Team</label>
+      </div>
+      <div class="teamControls">
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" value=<%= quantity ? parseInt(quantity) : '' %>>
+      </div class="submitButton">
+      <input type="submit" value="Assign Teams">
+    </form>
+    
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Members</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (let n = 0; n < teams.length; n++) {%>
+            <tr>
+              <td><%= n + 1 %></td>
+              <td><%= teams[n] %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<%- include("../partials/footer") %> 

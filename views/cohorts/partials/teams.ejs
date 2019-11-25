@@ -1,0 +1,22 @@
+<% const testTeams = ['4,7,2', '3,6,1', '5,8,9'] %>
+<div class="container">
+  <!-- <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>             -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Members</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let n = 0; n < testTeams.length; n++) {%>
+        <tr>
+          <td><%= n %></td>
+          <td><%= testTeams[n] %></td>
+          <!-- <td>john@example.com</td> -->
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>

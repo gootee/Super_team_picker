@@ -1,0 +1,23 @@
+<%- include("../partials/header") %>
+  <ul class="list-group">
+    <% for (let cohort of cohorts) { %>
+      <!-- <li class="list-group-item list-group-item-action list-group-item-primary"> -->
+      <li>
+        <div class="index_item">
+          <div class="index_heading">
+            <img class="index_photo" src=<%= cohort.logoUrl %>>
+            <div class="index_name">
+              <%= cohort.name %>
+            </div>
+          </div>
+          <div>
+            <%= cohort.members %>
+          </div>
+          <div class="index_button">
+            <a href="/cohorts/<%= cohort.id %>" class="btn btn-info">Show Cohort</a>
+          </div>
+        </div>
+      </li>
+    <% } %>
+  </ul>
+<%- include("../partials/footer") %>
